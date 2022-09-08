@@ -15,7 +15,9 @@ const server = app.listen(PORT, () => {
 const peerServer = ExpressPeerServer(server, {
   debug: true,
 });
-
+app.get("/", (req, res) => {
+  res.send({ message: "hello video talker" });
+});
 app.use("/peerjs", peerServer);
 
 groupCallHandler.createPeerServerListeners(peerServer);
